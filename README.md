@@ -18,18 +18,25 @@ The output of our model will be the number of bikes departing from a station wit
 
 ## Initial data processing
 
-File required:clean_citi_monthly_data.ipynb, monthly data. 
+Requires: clean_citi_monthly_data.ipynb, monthly data. 
 
-Monthly data can be downloaded directly from Citi Bike's website: https://www.citibikenyc.com/system-data, which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
+Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
 
 ## Binning and merging processed data
 
-In order to perform regression on the demand of bikes, we discrete each day into 24 one-hour intervals, count the number of bikes departing from each station in each time interval, fill in observations where the count is zero (since they are not reflected in the original data). Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing processed data through the demand_merge.ipynb file. 
+Requires: demand_merge.ipynb, processed monthly data.
+
+In order to perform regression on the demand and supply bikes, we discrete each day into 24 one-hour intervals, count the number of bikes departing from each station in each time interval, fill in observations where the count is zero (since they are not reflected in the original data). Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing processed data through the demand_merge.ipynb file. 
+
+## Scraping hourly weather data
+
+See Figure [fig:weather] for a snippet of scraped weather data, which is stored in a PostgreSQL database. 
 
 ## Adding hourly weather data 
 
-Finally, we associate weather data to each date and time bucket. Hourly weather data is obtained from Dark Sky, using a python scraper modified from code provided on the Github page of the bikeshare prediction project by Data Science for Social Good, which can be found at https://github.com/dssg/bikeshare. The
-See Figure [fig:weather] for a snippet of scraped weather data, which is stored in a PostgreSQL database. 
+Requires: demand_add_weather.ipynb, binned and merged data. 
+
+Finally, we associate weather data to each date and time bucket. Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a python scraper modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare). 
 
 ## Final data used for prediction training and testing
 
