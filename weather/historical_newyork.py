@@ -12,7 +12,7 @@ city_long = -73.9712
 
 try:
   #conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+ " host="+os.environ.get('dburl'))
-  conn = psycopg2.connect(dbname='nycweather',user='postgres',password='Qzn651213')
+  conn = psycopg2.connect(dbname=DBNAME,user=USER,password=PASSWORD)
 except:
   print("I am unable to connect to the database")
   exit()
