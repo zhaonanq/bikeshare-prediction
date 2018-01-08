@@ -16,6 +16,23 @@ A quantitative, predictive model for the demand and supply at bike stations woul
 
 The output of our model will be the number of bikes departing from a station within the one-hour time interval.
 
-## Data Processing
+## Initial data processing
 
-Data can be downloaded directly from Citi Bike's website: https://www.citibikenyc.com/system-data, which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
+File required:clean_citi_monthly_data.ipynb, monthly data. 
+
+Monthly data can be downloaded directly from Citi Bike's website: https://www.citibikenyc.com/system-data, which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
+
+## Binning and merging processed data
+
+In order to perform regression on the demand of bikes, we discrete each day into 24 one-hour intervals, count the number of bikes departing from each station in each time interval, fill in observations where the count is zero (since they are not reflected in the original data). Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing processed data through the demand_merge.ipynb file. 
+
+## Adding hourly weather data 
+
+Finally, we associate weather data to each date and time bucket. Hourly weather data is obtained from Dark Sky, using a python scraper modified from code provided on the Github page of the bikeshare prediction project by Data Science for Social Good, which can be found at https://github.com/dssg/bikeshare. The
+See Figure [fig:weather] for a snippet of scraped weather data, which is stored in a PostgreSQL database. 
+
+## Final data used for prediction training and testing
+
+The final dataset consists of ~1.3 million observations, which we split into 70% training set, 20% validation set, and 10% test set. We also performed data normalization and found that this procedure improved predictions slightly.
+
+A snippet of the processed data for demand prediction is shown in Figure [fig:Processed-data-for], where the column “Count” is the number of bikes departing from a station in a specific time bucket. This data is then fed into various regression and classification models for training, evaluation, and prediction. We also normalized each feature, as well as divided the “Count” column by 10. For classification, we grouped the counts to intervals of length 4, for a total of 9 categories, where the last category is any number that is larger than 30. 
