@@ -1,31 +1,21 @@
-## Synopsis
-
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
-
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Bike Share systems are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
 
-## Installation
+Most bike share systems employ active rebalancing to ease the pressure at peak times. This means transporting a certain number of bikes from inactive stations to more active stations, or between stations and storage, in order to maximize the usage of each bike and ease supply and demand inbalance problems across bike stations at different times.
 
-Provide code examples and explanations of how to get the project.
+A quantitative, predictive model for the demand and supply at bike stations would help operators plan bike transports more efficiently. This project aims to build such a model for bike arrivals at each station within one-hour time intervals, as a function of the following parameters:
 
-## API Reference
+• time of day, divided into 24 one-hour intervals
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+• whether a day is a work day or weekend/federal holiday
 
-## Tests
+• hourly temperature
 
-Describe and show how to run the tests with code examples.
+• hourly precipitation intensity
 
-## Contributors
+The output of our model will be the number of bikes departing from a station within the one-hour time interval.
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+## Data Processing
 
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+Data can be downloaded directly from Citi Bike's website: https://www.citibikenyc.com/system-data, which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
