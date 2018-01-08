@@ -1,4 +1,4 @@
-/* Run this PostgreSQL script to retrieve historical weather data for New York.*/
+/* Run this PostgreSQL script to create table to store weather data for New York.*/
 
 SET timezone TO "+00:00";     
 
