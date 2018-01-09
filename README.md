@@ -22,7 +22,20 @@ The output of our model will be the number of bikes departing from a station wit
 
 Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
-Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the clean_citi_monthly_data.ipynb file for initial processing. This includes...
+Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), a snippet of which is shown below.
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/snippet%20of%20original%20data.JPG" class="centerImage">
+
+It is then passed through the clean_citi_monthly_data.ipynb file for initial processing. This includes:
+
+• discard trips shorter than 60 seconds and longer than an hour, which likely result from riders' failing to dock properly
+
+• discard trips taken by day-pass holders rather than subscribers, since day-pass holder rides are much less predictable
+
+• discard those trip that are taken by Citi Bike crew on rebalancing trips, as they do not reflect actual usage
+
+• separate date and time, and convert time into 24 one-hour time buckets
+
+• determine if a date is work day, i.e. not weekend or a federal holiday;assign variable 0 if it is a work day and 1 otherwise
 
 ## Binning and merging processed data
 
