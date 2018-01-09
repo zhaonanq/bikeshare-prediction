@@ -62,12 +62,13 @@ Next, create a table where the weather data will be stored by exiting from Postg
 ```
 psql -U postgres -d database_name -f weather_newyork.sql
 ```
-If prompted, enter your password again. 
+When prompted, enter your password again. 
 
-Now we can run the scraper historical_newyork.py to load historical hourly weather into the database. Note that in that file, which contains the line
+Now we can run the scraper [historical_newyork.py](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) to load historical hourly weather into the database. Note that in that file, which contains the line
 ```
 conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+ " host="+os.environ.get('dburl'))
 ```
+add password
 you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, and value of 'dbuser', which is 'postgres' in our case. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
 Finally, you will need to supply a Dark Sky API key in the line 
 `forecast = forecastio.Forecastio(API_KEY)` 
