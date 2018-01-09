@@ -22,7 +22,7 @@ The output of our model will be the number of bikes departing from a station wit
 
 Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
-Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. This includes...
+Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the clean_citi_monthly_data.ipynb file for initial processing. This includes...
 
 ## Binning and merging processed data
 
@@ -31,10 +31,12 @@ Requires: [demand_merge.ipynb](https://github.com/lifeisapomdp/bikeshare-predict
 In order to perform regression on the demand and supply of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing the initially processed data through the demand_merge.ipynb file. 
 
 ## Scraping hourly weather data
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/dark_sky_logo.png" class="centerImage" width="200">
+
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
-   <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/weather_snippet.PNG" class="centerImage" width="300">
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/weather_snippet.PNG" class="centerImage">
 
 ## Adding hourly weather data 
 
