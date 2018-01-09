@@ -2,7 +2,7 @@
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
 
-Bike share systems are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
+Bike share systems, such as NYC-based Citi Bike, are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
 
 Most bike share systems employ active rebalancing to ease the pressure at peak times. This means transporting a certain number of bikes from inactive stations to more active stations, or between stations and storage, in order to maximize the usage of each bike and ease supply and demand inbalance problems across bike stations at different times.
 
@@ -48,9 +48,9 @@ In order to perform regression on the demand (or supply) of bikes, we discretize
 ## Scraping hourly weather data
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/dark_sky_logo.png" class="centerImage" width="200">
 
-Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a Python [scraper](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare), which in turn relies on this Python [wrapper](https://github.com/ZeevG/python-forecast.io) of the Dark Sky API. In order to scrape and store the hourly data, follow the instructions given below for storing data on local Windows machine. Caution: the procedure is slightly different for virtual machine or Unix-like machines.
+Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a Python [scraper](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare), which in turn relies on this Python [wrapper](https://github.com/ZeevG/python-forecast.io) of the Dark Sky API. In order to scrape and store the hourly data, follow the instructions given below for storing data on a local Windows machine. Caution: the procedure is slightly different for virtual machine or Unix-like machines.
 
-In order to scrape and store the hourly data, first install PostgreSQL and in Windows command line type,
+First install PostgreSQL and in Windows command line type,
 ```
 psql -U postgres
 ```
