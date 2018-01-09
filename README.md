@@ -66,16 +66,13 @@ When prompted, enter your password again.
 
 Now we can run the scraper [historical_newyork.py](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) to load historical hourly weather into the database. Note that in that file, which contains the line
 ```
-conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+ " host="+os.environ.get('dburl'))
+conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+" password="+os.environ.get('password')+" host="+os.environ.get('dburl'))
 ```
-add password
-you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, and value of 'dbuser', which is 'postgres' in our case. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
+you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, value of 'dbuser', which is 'postgres' in our case, and value of 'password', which is your PostgreSQL password. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
+
 Finally, you will need to supply a Dark Sky API key in the line 
 `forecast = forecastio.Forecastio(API_KEY)` 
 which can be obtained by setting up an account at Dark Sky. 
-
-Also discuss difference between virtual and local machine. 
-
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
@@ -83,9 +80,9 @@ See below for a snippet of the scraped weather data, which is stored in a Postgr
 
 ## Adding hourly weather data 
 
-Requires: demand_add_weather.ipynb, binned and merged data. 
+Requires: [demand_add_weather.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_add_weather.ipynb), binned and merged data. 
 
-Finally, we associate weather data to each date and time bucket.  
+We associate weather data(hourly precipitation intensity and temperature) to each date and time bucket.
 
 ## Final data used for prediction training and testing
 
