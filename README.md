@@ -48,21 +48,31 @@ In order to perform regression on the demand (or supply) of bikes, we discretize
 ## Scraping hourly weather data
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/dark_sky_logo.png" class="centerImage" width="200">
 
-Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a Python [scraper](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare), which in turn relies on this Python [wrapper](https://github.com/ZeevG/python-forecast.io). 
+Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a Python [scraper](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py) modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare), which in turn relies on this Python [wrapper](https://github.com/ZeevG/python-forecast.io) of the Dark Sky API. In order to scrape and store the hourly data, follow the instructions given below for storing data on local machine. The procedure is slightly different for virtual machine.
 
-In order to scrape and store the hourly data, first install PostgreSQL and in Windows command line (Mac differs slightly) type,
-`psql -U postgres`
+In order to scrape and store the hourly data, first install PostgreSQL and in Windows command line (Linux differs slightly) type,
+```
+psql -U postgres
+```
 and enter the password you were asked to create during installation. You are now in the PostgreSQL environment. Now create a PostgreSQL database by typing 
-`CREATE DATABASE database_name;`
-Next, create a table where the weather data will be stored by exiting from PostgreSQL first and then running the [weather_newyork.sql](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/weather_newyork.sql) file:
-`psql -U postgres -d database_name -f weather_newyork.sql`
-and entering your password again. 
+```
+CREATE DATABASE database_name;
+```
+Next, create a table where the weather data will be stored by exiting from PostgreSQL first with `\q`, navigating to the directory where the [weather_newyork.sql](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/weather_newyork.sql) file is, and typing
+```
+psql -U postgres -d database_name -f weather_newyork.sql
+```
+If prompted, enter your password again. 
+
 Now we can run the scraper historical_newyork.py to load historical hourly weather into the database. Note that in that file, which contains the line
 `conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+ " host="+os.environ.get('dburl'))`
 you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, and value of 'dbuser', which should be 'postgres'. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
 Finally, you will need to supply a Dark Sky API key in the line 
 `forecast = forecastio.Forecastio(API_KEY)` 
 which can be obtained by setting up an account at Dark Sky. 
+
+Also discuss difference between virtual and local machine. 
+
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
@@ -91,3 +101,7 @@ We see from the snippet above that there is intrinsic noise in the dataset: even
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Tensorflow_logo.png" class="centerImage" width="100">
 
 Details to come... For now, please refer to the final project report file in this repo.
+
+## Regression with neural network
+
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Tensorflow_logo.png" class="centerImage" width="100">
