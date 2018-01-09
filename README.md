@@ -16,11 +16,11 @@ A quantitative, predictive model for the demand and supply at bike stations woul
 
 • hourly precipitation intensity
 
-The output of our model will be the number of bikes departing from a station within the one-hour time interval.
+The output of our model will be the number of bikes departing from a station within the one-hour time interval. 
 
 ## Initial data processing
 
-Requires: clean_citi_monthly_data.ipynb, monthly data. 
+Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
 Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
 
