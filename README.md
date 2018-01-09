@@ -1,5 +1,7 @@
 ## Motivation
+
 ![alt text](https://github.com/lifeisapomdp/bikeshare-prediction/images/Citi_Bike_logo.jpg "Citi Bike")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 Bike Share systems are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
 
