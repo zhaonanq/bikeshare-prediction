@@ -34,7 +34,7 @@ In order to perform regression on the demand and supply of bikes, we discretize 
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
-<p style="text-align:center;"><img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/weather_snippet.PNG" width="300"></p>
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/weather_snippet.PNG" class="centerImage" width="300">
 
 ## Adding hourly weather data 
 
