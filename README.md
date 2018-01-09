@@ -72,7 +72,7 @@ you will need to specify the value of the environmental variable 'dbname', which
 
 Finally, you will need to supply a Dark Sky API key in the line
 `forecast = forecastio.Forecastio(API_KEY)` 
-[historical_newyork.py](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py), which can be obtained by setting up an account at Dark Sky. 
+in [historical_newyork.py](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py), which can be obtained by setting up an account at Dark Sky. 
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
