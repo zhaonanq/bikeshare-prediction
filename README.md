@@ -43,10 +43,12 @@ It is then passed through the clean_citi_monthly_data.ipynb file for initial pro
 
 Requires: [demand_merge.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_merge.ipynb), processed monthly data.
 
-In order to perform regression on the demand (or supply) of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from (or arriving at) a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Then we merge all observations into a single file. These are done by passing the initially processed data through the demand_merge.ipynb file. 
+In order to perform regression on the demand (or supply) of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from (or arriving at) a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Note that before binning, we also need to discard irrelevant features such as trip duration and gender and age of riders. Finally we merge all observations into a single file. These are done by passing the initially processed data through the demand_merge.ipynb file. 
 
 ## Scraping hourly weather data
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/dark_sky_logo.png" class="centerImage" width="200">
+
+Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a python scraper modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare), which in turn relies on this Python [wrapper](https://github.com/ZeevG/python-forecast.io). In order to store the hourly data, first run the [weather_newyork.sql](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/weather_newyork.sql) file to create a PostgreSQL database. 
 
 `back-ticks around`
 
@@ -58,7 +60,7 @@ See below for a snippet of the scraped weather data, which is stored in a Postgr
 
 Requires: demand_add_weather.ipynb, binned and merged data. 
 
-Finally, we associate weather data to each date and time bucket. Hourly weather data is obtained from [Dark Sky](https://darksky.net), using a python scraper modified from code provided on the Github page of the bikeshare prediction project by [Data Science for Social Good](https://github.com/dssg/bikeshare). 
+Finally, we associate weather data to each date and time bucket.  
 
 ## Final data used for prediction training and testing
 
@@ -76,4 +78,4 @@ We see from the snippet above that there is intrinsic noise in the dataset: even
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Tensorflow_logo.png" class="centerImage" width="100">
 
-Details to come...
+Details to come... For now, please refer to the final project report file in this repo.
