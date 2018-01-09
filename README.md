@@ -70,9 +70,9 @@ conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.g
 ```
 you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, value of 'dbuser', which is 'postgres' in our case, and value of 'password', which is your PostgreSQL password. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
 
-Finally, you will need to supply a Dark Sky API key in the line 
+Finally, you will need to supply a Dark Sky API key in the line
 `forecast = forecastio.Forecastio(API_KEY)` 
-which can be obtained by setting up an account at Dark Sky. 
+[historical_newyork.py](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/historical_newyork.py), which can be obtained by setting up an account at Dark Sky. 
 
 See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
 
