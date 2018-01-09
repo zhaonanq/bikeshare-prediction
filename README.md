@@ -29,19 +29,19 @@ It is then passed through the clean_citi_monthly_data.ipynb file for initial pro
 
 • discard trips shorter than 60 seconds and longer than an hour, which likely result from riders' failing to dock properly
 
-• discard trips taken by day-pass holders rather than subscribers, since day-pass holder rides are much less predictable
+• discard trips taken by day-pass holders(labeled "customers" in the dataset) rather than subscribers, since day-pass holder rides are much less predictable
 
 • discard those trip that are taken by Citi Bike crew on rebalancing trips, as they do not reflect actual usage
 
 • separate date and time, and convert time into 24 one-hour time buckets
 
-• determine if a date is work day, i.e. not weekend or a federal holiday;assign variable 0 if it is a work day and 1 otherwise
+• determine if a date is work day, i.e. not weekend or a federal holiday;assign binary variable 0 if it is a work day and 1 otherwise
 
 ## Binning and merging processed data
 
 Requires: [demand_merge.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_merge.ipynb), processed monthly data.
 
-In order to perform regression on the demand and supply of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing the initially processed data through the demand_merge.ipynb file. 
+In order to perform regression on the demand (or supply) of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from (or arriving at) a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Then we merge all observations into a single file. These are done by passing the initially processed data through the demand_merge.ipynb file. 
 
 ## Scraping hourly weather data
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/dark_sky_logo.png" class="centerImage" width="200">
@@ -59,6 +59,10 @@ Finally, we associate weather data to each date and time bucket. Hourly weather 
 
 ## Final data used for prediction training and testing
 
-The final dataset consists of ~1.3 million observations, which we split into 70% training set, 20% validation set, and 10% test set. We also performed data normalization and found that this procedure improved predictions slightly.
+The final dataset consists of ~1.3 million observations, which we split into 70% training set, 20% validation set, and 10% test set. We also performed data normalization and found that this procedure slightly improved predictions.
 
-A snippet of the processed data for demand prediction is shown in Figure [fig:Processed-data-for], where the column “Count” is the number of bikes departing from a station in a specific time bucket. This data is then fed into various regression and classification models for training, evaluation, and prediction. We also normalized each feature, as well as divided the “Count” column by 10. For classification, we grouped the counts to intervals of length 4, for a total of 9 categories, where the last category is any number that is larger than 30. 
+A snippet of the processed data for demand prediction is shown below. 
+
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/snippet%20of%20processed%20data.PNG" class="centerImage">
+
+Here the column “Count” is the number of bikes departing from a station in a specific time bucket. This data is then fed into various regression and classification models for training, evaluation, and prediction. We also normalized each feature, as well as divided the “Count” column by 10. For classification, we grouped the counts to intervals of length 4, for a total of 9 categories, where the last category is any number that is larger than 30. 
