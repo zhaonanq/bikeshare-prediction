@@ -8,6 +8,8 @@ Most bike share systems employ active rebalancing to ease the pressure at peak t
 
 A quantitative, predictive model for the demand and supply at bike stations would help operators plan bike transports more efficiently. This project aims to build such a model for bike arrivals at each station within one-hour time intervals, as a function of the following parameters:
 
+• latitude and longitude of the bike station
+
 • time of day, divided into 24 one-hour intervals
 
 • whether a day is a work day or weekend/federal holiday
@@ -65,4 +67,6 @@ A snippet of the processed data for demand prediction is shown below.
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/snippet%20of%20processed%20data.PNG" class="centerImage">
 
-Here the column “Count” is the number of bikes departing from a station in a specific time bucket. This data is then fed into various regression and classification models for training, evaluation, and prediction. For classification, we grouped the counts to intervals of length 4, for a total of 9 categories, where the last category is any number that is larger than 31. We see from the snippet above that there is intrinsic noise in the dataset: even given similar weather conditions, the count for the above station in time bucket 0 could have a demand ranging between 0 and 4. As we will later see, 4 is also where the RMSE of the validation set for our regression algorithm lies, and our classification algorithm with categories of length 4 can achieve near perfect accuracy on the training set.   
+Here the column “Count” is the number of bikes departing from a station in a specific time bucket. This data is then fed into various regression and classification models for training, evaluation, and prediction. For classification, we grouped the counts to intervals of length 4, for a total of 9 categories, where the last category is any number that is larger than 31. 
+
+We see from the snippet above that there is intrinsic noise in the dataset: even given similar weather conditions, the count for the above station (with latitude 40.73221853 and longitude -73.98165557) in time bucket 0 could have a demand ranging between 0 and 4. As we will later see, 4 is also where the RMSE of the validation set for our regression algorithm lies, and our classification algorithm with categories of length 4 can achieve near perfect accuracy on the training set.   
