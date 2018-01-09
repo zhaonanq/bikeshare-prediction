@@ -2,7 +2,7 @@
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
 
-Bike Share systems are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
+Bike share systems are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
 
 Most bike share systems employ active rebalancing to ease the pressure at peak times. This means transporting a certain number of bikes from inactive stations to more active stations, or between stations and storage, in order to maximize the usage of each bike and ease supply and demand inbalance problems across bike stations at different times.
 
@@ -22,17 +22,19 @@ The output of our model will be the number of bikes departing from a station wit
 
 Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
-Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. 
+Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), which is then passed through the  clean_citi_monthly_data.ipynb file for initial processing. This includes...
 
 ## Binning and merging processed data
 
-Requires: demand_merge.ipynb, processed monthly data.
+Requires: [demand_merge.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_merge.ipynb), processed monthly data.
 
-In order to perform regression on the demand and supply bikes, we discrete each day into 24 one-hour intervals, count the number of bikes departing from each station in each time interval, fill in observations where the count is zero (since they are not reflected in the original data). Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing processed data through the demand_merge.ipynb file. 
+In order to perform regression on the demand and supply of bikes, we discretize each day into 24 one-hour intervals and count the number of bikes departing from a station in each time interval. We also fill in observations where the count is zero, since they are not reflected explicitly in the original data. Then we determine whether each date is a work day, i.e. not weekend or federal holiday. These are done by passing the initially processed data through the demand_merge.ipynb file. 
 
 ## Scraping hourly weather data
 
-See Figure [fig:weather] for a snippet of scraped weather data, which is stored in a PostgreSQL database. 
+See below for a snippet of the scraped weather data, which is stored in a PostgreSQL database. 
+
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/weather_snippet.PNG" width="200">
 
 ## Adding hourly weather data 
 
