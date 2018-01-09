@@ -20,7 +20,7 @@ cur = conn.cursor()
 
 #Casts float from string when there is the posbility of the empty string
 
-forecast = forecastio.Forecastio('8aad4544fa78088f2956dea8df2f6748')
+forecast = forecastio.Forecastio(API_KEY)
 result = forecast.load_forecast(city_lat,city_long)
 
 start_date = datetime.datetime(2017,6,1)
