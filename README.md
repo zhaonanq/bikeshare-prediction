@@ -2,7 +2,7 @@
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
 
-Bike share systems, such as NYC-based [Citi Bike](https://member.citibikenyc.com/map/), are becoming increasingly popular in urban areas. Citi Bike represents one of two major types of bikeshare: bikeshare with fixed stations and dockless bikeshare system, with Citi Bike being the former. With growing membership and expansion of service comes many operational challenges. A major challenge in fixed-station bikeshare operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours.
+Bike share systems, such as NYC-based [Citi Bike](https://member.citibikenyc.com/map/), are becoming increasingly popular in urban areas. Citi Bike represents one of two major types of bikeshare: bikeshare with fixed stations and dockless bikeshare system, with Citi Bike being the former. With growing membership and expansion of service comes many operational challenges. A major operational challenge in bikeshare systems with fixed stations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours.
 
 See below for a plot of number of aggregate bike rentals in January 2017 as a function of time of day, discretized into 48 30-minute intervals. The demand peaks at 8 am and 6 pm.
 
