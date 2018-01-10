@@ -2,9 +2,13 @@
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
 
-Bike share systems, such as NYC-based Citi Bike, are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
+Bike share systems, such as NYC-based [Citi Bike](https://member.citibikenyc.com/map/), are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
 
 Most bike share systems employ active rebalancing to ease the pressure at peak times. This means transporting a certain number of bikes from inactive stations to more active stations, or between stations and storage, in order to maximize the usage of each bike and ease supply and demand inbalance problems across bike stations at different times.
+
+| <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/rebalancing.jpg" width="400"> | 
+|:--:| 
+| *Above, a Citi Bike employee transports bikes near East 7th Street in NYC.* |
 
 A quantitative, predictive model for the demand and supply at bike stations would help operators plan bike transports more efficiently. This project aims to build such a model for bike arrivals at each station within one-hour time intervals, as a function of the following parameters:
 
@@ -82,7 +86,7 @@ See below for a snippet of the scraped weather data, which is stored in a Postgr
 
 Requires: [demand_add_weather.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_add_weather.ipynb), binned and merged data. 
 
-We associate weather data(hourly precipitation intensity and temperature) to each date and time bucket.
+We associate weather data (hourly precipitation intensity and temperature) to each date and time bucket.
 
 ## Final data used for prediction training and testing
 
