@@ -8,7 +8,7 @@ Most bike share systems employ active rebalancing to ease the pressure at peak t
 
 | <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/rebalancing.jpg" width="400"> | 
 |:--:| 
-| *Above, a Citi Bike employee transports bikes near East 7th Street in NYC.* |
+| *Above, Citi Bike employees transport bikes near East 7th Street in NYC.* |
 
 A quantitative, predictive model for the demand and supply at bike stations would help operators plan bike transports more efficiently. This project aims to build such a model for bike arrivals at each station within one-hour time intervals, as a function of the following parameters:
 
