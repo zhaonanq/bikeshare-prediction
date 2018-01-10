@@ -1,6 +1,12 @@
 ## Motivation
 
-Bike share systems, such as NYC-based [Citi Bike](https://member.citibikenyc.com/map/), are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours. 
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
+
+Bike share systems, such as NYC-based [Citi Bike](https://member.citibikenyc.com/map/), are becoming increasingly popular in urban areas. With growing membership and expansion of service comes many operational challenges. A major challenge in their operations is the unbalanced demand and supply at bike stations as a function of time and location. The most obvious example is that working districts have high supply during morning peak hours and high demand during evening peak hours.
+
+See below for a plot of number of aggregate bike rentals in January 2017 as a function of time of day, discretized into 48 30-minute intervals. The demand peaks at 8 am and 6 pm.
+
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/bike%20rentals.png" width="400">
 
 Most bike share systems employ active rebalancing to ease the pressure at peak times. This means transporting a certain number of bikes from inactive stations to more active stations, or between stations and storage, in order to maximize the usage of each bike and ease supply and demand inbalance problems across bike stations at different times.
 
@@ -23,8 +29,6 @@ A quantitative, predictive model for the demand and supply at bike stations woul
 The output of our model will be the number of bikes departing from a station within the one-hour time interval. 
 
 ## Initial data processing
-
-<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Citi_Bike_logo.jpg" width="150">
 
 Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
@@ -87,6 +91,10 @@ See below for a snippet of the scraped weather data, which is stored in a Postgr
 Requires: [demand_add_weather.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/demand%20prediction/demand_add_weather.ipynb), binned and merged data. 
 
 We associate weather data (hourly precipitation intensity and temperature) to each date and time bucket.
+
+As an preliminary illustration of how weather affects bike usage, we selected a pair of stations with relatively high usage during morning rush hours. Station “Pershing Square North” is near Grand Central, and Station “East 24th Street and Park Avenue South” is in the Flatiron District, with shops, office space, as well as a university. Figure [fig:Pershing Square] shows the number of trips from the former to the latter in March 2017 between 6 to 6:30 am, as a function of the temperature during that time interval. We see a clear dependence on temperature.
+
+<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/temperatureregression.png" width="400">
 
 ## Final data used for prediction training and testing
 
