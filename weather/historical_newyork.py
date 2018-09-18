@@ -3,7 +3,7 @@ import json
 import urllib.request, urllib.error, urllib.parse
 import time
 import datetime
-from forecastio import forecastio 
+import forecastio 
 import psycopg2
 import sys
 
