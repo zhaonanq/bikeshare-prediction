@@ -68,6 +68,16 @@ and enter the password you were asked to create during installation. You are now
 ```
 CREATE DATABASE database_name;
 ```
+To make sure you are in the right database, use the command
+```
+SELECT current_database();
+```
+and use 
+```
+\connect database_name; 
+```
+to change to the database you just created.
+
 Next, create a table where the weather data will be stored by exiting from PostgreSQL first with `\q`, navigating to the directory where the [weather_newyork.sql](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/weather/weather_newyork.sql) file is, and typing
 ```
 psql -U postgres -d database_name -f weather_newyork.sql
