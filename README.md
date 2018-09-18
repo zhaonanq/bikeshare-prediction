@@ -30,6 +30,8 @@ The output of our model will be the number of bikes departing from a station wit
 
 ## Initial data processing
 
+**Note that tensorflow is only supported by Python 3.5 and Python 3.6, so if you have Python 3.7 or higher installed the machine learning notebook files will not be executed.**
+
 Requires: [clean_citi_monthly_data.ipynb](https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/clean_citi_monthly_data.ipynb), monthly data from Citi Bike.
 
 Monthly data can be downloaded directly from Citi Bike's [website](https://www.citibikenyc.com/system-data), a snippet of which is shown below.
