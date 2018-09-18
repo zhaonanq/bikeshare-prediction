@@ -26,6 +26,8 @@ A quantitative, predictive model for the demand and supply at bike stations woul
 
 • hourly precipitation intensity
 
+• **To include: precipitation probability**
+
 The output of our model will be the number of bikes departing from a station within the one-hour time interval. 
 
 ## Initial data processing
@@ -88,7 +90,14 @@ Now we can run the scraper [historical_newyork.py](https://github.com/lifeisapom
 ```
 conn = psycopg2.connect("dbname="+os.environ.get('dbname')+" user="+os.environ.get('dbuser')+" password="+os.environ.get('password')+" host="+os.environ.get('dburl'))
 ```
-you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, value of 'dbuser', which is 'postgres' in our case, and value of 'password', which is your PostgreSQL password. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. 
+you will need to specify the value of the environmental variable 'dbname', which should be the same as database_name, value of 'dbuser', which is 'postgres' in our case, and value of 'password', which is your PostgreSQL password. You don't need to specify host if the database is on your local machine;otherwise, the value of 'dburl' should be the address of the virtual machine. If you don't have the package psycopg2 installed, you can run 
+```
+pip install psycopg2
+```
+on command line. You will also need to install Forecastio by running 
+```
+ pip3 install python_forecastio
+```
 
 Finally, you will need to supply a Dark Sky API key in the line
 `forecast = forecastio.Forecastio(API_KEY)` 
