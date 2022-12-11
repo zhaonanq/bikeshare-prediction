@@ -129,14 +129,8 @@ Here the column “Count” is the number of bikes departing from a station in a
 
 We see from the snippet above that there is intrinsic noise in the dataset: even given similar weather conditions, the count for the above station (with latitude 40.73221853 and longitude -73.98165557) in time bucket 0 could have a demand ranging between 0 and 4. As we will later see, 4 is also where the RMSE of the validation set for our regression algorithm lies, and our classification algorithm with categories of length 4 can achieve near perfect accuracy on the validation set.   
 
-## Regression with neural network
+## Regression amd Classification with neural networks
 
 <img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Tensorflow_logo.png" class="centerImage" width="100">
 
-Details to come... For now, please refer to the final project report file in this repo.
-
-## Classification with neural network
-
-<img src="https://github.com/lifeisapomdp/bikeshare-prediction/blob/master/images/Tensorflow_logo.png" class="centerImage" width="100">
-
-Details to come... For now, please refer to the final project report file in this repo.
+Please refer to the final project report file in this repository for details of the implementation and results.
